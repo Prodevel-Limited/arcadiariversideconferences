@@ -1,0 +1,70 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import EnquiryForm from '../components/EnquiryForm';
+import { SITE_TITLE } from '../consts';
+import { Mail, MapPin, Phone, Clock } from 'lucide-react';
+---
+
+<MainLayout title="Enquire">
+	<section class="py-32 relative bg-grid">
+			<div class="container-premium">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-32 items-start">
+					
+					<!-- Information Column -->
+					<div class="space-y-16">
+						<div>
+							<span class="text-brand-accent text-xs font-bold uppercase tracking-[0.5em] mb-6 block">Strategic Triage</span>
+							<h1 class="text-5xl md:text-8xl font-display font-bold mb-10 leading-[0.9] tracking-tighter">
+								CRAFT YOUR <br />
+								<span class="text-white/20 italic">LEGACY</span>
+							</h1>
+							<p class="text-white/40 text-xl leading-relaxed max-w-md font-light">
+								Every milestone hosted at Arcadia is treated with surgical precision. Begin your consultation today.
+							</p>
+						</div>
+
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-white/5 pt-16">
+							<div class="space-y-3">
+								<div class="flex items-center gap-3 text-brand-accent">
+									<MapPin size={16} />
+									<h4 class="text-[10px] font-bold uppercase tracking-widest">Location</h4>
+								</div>
+								<p class="text-sm text-white/60 font-medium">Barking Riverside, London<br />Thames Road Corridor</p>
+							</div>
+
+							<div class="space-y-3">
+								<div class="flex items-center gap-3 text-brand-accent">
+									<Mail size={16} />
+									<h4 class="text-[10px] font-bold uppercase tracking-widest">Enquiries</h4>
+								</div>
+								<p class="text-sm text-white/60 font-medium">events@arcadiariverside.com</p>
+							</div>
+
+							<div class="space-y-3">
+								<div class="flex items-center gap-3 text-brand-accent">
+									<Clock size={16} />
+									<h4 class="text-[10px] font-bold uppercase tracking-widest">SLA</h4>
+								</div>
+								<p class="text-sm text-white/60 font-medium">Guaranteed response in 4h</p>
+							</div>
+
+							<div class="space-y-3">
+								<div class="flex items-center gap-3 text-brand-accent">
+									<Phone size={16} />
+									<h4 class="text-[10px] font-bold uppercase tracking-widest">Phone</h4>
+								</div>
+								<p class="text-sm text-white/60 font-medium">+44 (0) 20 8123 4567</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Form Column -->
+					<div class="relative">
+						<div class="absolute -top-20 -right-20 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+						<EnquiryForm client:load />
+					</div>
+
+				</div>
+			</div>
+		</section>
+</MainLayout>

@@ -1,62 +1,164 @@
 ---
 const today = new Date();
+import { SITE_TITLE, CONTACT_INFO, SOCIAL_LINKS, NAVIGATION } from '../consts';
+import { Image } from 'astro:assets';
+import logo from '../assets/arc_logo.PNG';
+import { Linkedin, Instagram, Twitter, Youtube, ArrowUpRight, Globe, Command, Zap } from 'lucide-react';
+
+const venueLinks = [
+	{ name: 'Riverside Suite', href: '/venues/riverside-suite' },
+	{ name: 'Innovation Lab', href: '/venues/innovation-lab' },
+	{ name: 'Executive Boardroom', href: '/venues/boardroom' },
+	{ name: 'The Studio', href: '/venues/studio' },
+];
 ---
 
-<footer>
-	&copy; {today.getFullYear()} Your name here. All rights reserved.
-	<div class="social-links">
-		<a href="https://m.webtoo.ls/@astro" target="_blank">
-			<span class="sr-only">Follow Astro on Mastodon</span>
-			<svg
-				viewBox="0 0 16 16"
-				aria-hidden="true"
-				width="32"
-				height="32"
-				astro-icon="social/mastodon"
-				><path
-					fill="currentColor"
-					d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"
-				></path></svg
-			>
-		</a>
-		<a href="https://twitter.com/astrodotbuild" target="_blank">
-			<span class="sr-only">Follow Astro on Twitter</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter"
-				><path
-					fill="currentColor"
-					d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-				></path></svg
-			>
-		</a>
-		<a href="https://github.com/withastro/astro" target="_blank">
-			<span class="sr-only">Go to Astro's GitHub repo</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
-				><path
-					fill="currentColor"
-					d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-				></path></svg
-			>
-		</a>
+<footer class="bg-brand-primary border-t border-white/5 pt-40 pb-12 overflow-hidden relative">
+	<!-- Blueprint Grid Overlay -->
+	<div class="absolute inset-0 bg-grid opacity-5 pointer-events-none"></div>
+
+	<div class="container-premium relative z-10">
+		<!-- Section 1: The Brand Statement & Newsletter -->
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-32 mb-40 items-start">
+			<div class="lg:col-span-7">
+				<div class="flex items-center gap-4 mb-10 text-brand-accent">
+					<Command size={16} />
+					<span class="text-[10px] font-bold uppercase tracking-[0.5em]">Arcadia Operational Mandate</span>
+				</div>
+				<h2 class="text-4xl md:text-7xl font-display font-bold text-white uppercase leading-[0.9] tracking-tighter mb-12">
+					Engineering <span class="text-brand-accent italic">Exceptional</span> <br />
+					Professional <span class="text-white/20">Environments.</span>
+				</h2>
+				<p class="text-white/40 text-xl leading-relaxed max-w-2xl font-light">
+					We provide the architectural infrastructure for London's most significant corporate milestones. Our spaces are built for speed, silence, and strategy.
+				</p>
+			</div>
+			
+			<div class="lg:col-span-5 w-full">
+				<div class="bg-brand-secondary border border-white/5 p-10 md:p-16 relative group">
+					<div class="absolute top-0 right-0 p-6 opacity-20 text-brand-accent group-hover:opacity-100 transition-opacity">
+						<Zap size={20} fill="currentColor" />
+					</div>
+					<h4 class="text-xs font-display font-bold uppercase tracking-[0.3em] text-white mb-6">Arcadia Intelligence</h4>
+					<p class="text-xs text-white/30 mb-10 leading-relaxed font-light">Subscribe for high-fidelity updates on venue availability and East London regeneration.</p>
+					<form class="space-y-4">
+						<div class="relative group/input">
+							<input 
+								type="email" 
+								placeholder="Enter Professional Email" 
+								class="w-full bg-brand-primary/50 border border-white/10 px-6 py-5 text-xs text-white outline-none focus:border-brand-accent transition-all placeholder:text-white/10 rounded-none group-hover/input:border-white/20" 
+							/>
+						</div>
+						<button class="w-full bg-brand-accent text-brand-primary font-bold uppercase tracking-[0.2em] text-[10px] py-6 hover:bg-white transition-all duration-500">
+							Initialize Subscription
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section 2: The Command Grid -->
+		<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border border-white/5 mb-40">
+			<!-- Col 1: Primary Navigation -->
+			<div class="bg-brand-primary p-12 space-y-10 group hover:bg-brand-secondary transition-colors duration-500">
+				<h4 class="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20 mb-8 flex items-center gap-2">
+					<div class="w-1.5 h-1.5 bg-brand-accent rounded-full"></div>
+					Ecosystem
+				</h4>
+				<ul class="space-y-4">
+					{NAVIGATION.map((item) => (
+						<li>
+							<a href={item.href} class="text-xs text-white/40 hover:text-white transition-colors uppercase tracking-widest block py-1">
+								{item.name}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<!-- Col 2: Venue Directory -->
+			<div class="bg-brand-primary p-12 space-y-10 group hover:bg-brand-secondary transition-colors duration-500">
+				<h4 class="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20 mb-8 flex items-center gap-2">
+					<div class="w-1.5 h-1.5 bg-brand-accent rounded-full"></div>
+					The Portfolio
+				</h4>
+				<ul class="space-y-4">
+					{venueLinks.map((item) => (
+						<li>
+							<a href={item.href} class="text-xs text-white/40 hover:text-white transition-colors uppercase tracking-widest block py-1">
+								{item.name}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<!-- Col 3: Operational Presence -->
+			<div class="bg-brand-primary p-12 space-y-10 group hover:bg-brand-secondary transition-colors duration-500">
+				<h4 class="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20 mb-8 flex items-center gap-2">
+					<div class="w-1.5 h-1.5 bg-brand-accent rounded-full"></div>
+					Presence
+				</h4>
+				<ul class="space-y-4">
+					{Object.entries(SOCIAL_LINKS).map(([name, url]) => (
+						<li>
+							<a href={url} target="_blank" rel="noopener noreferrer" class="text-xs text-white/40 hover:text-brand-accent transition-colors uppercase tracking-widest block py-1">
+								{name}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<!-- Col 4: Technical Triage -->
+			<div class="bg-brand-primary p-12 space-y-10 group hover:bg-brand-secondary transition-colors duration-500">
+				<h4 class="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20 mb-8 flex items-center gap-2">
+					<div class="w-1.5 h-1.5 bg-brand-accent rounded-full"></div>
+					Technical
+				</h4>
+				<div class="space-y-8">
+					<div class="space-y-2">
+						<span class="text-[9px] font-bold uppercase tracking-widest text-brand-accent/50 block">Operational Site</span>
+						<p class="text-[11px] text-white/40 font-light leading-relaxed">{CONTACT_INFO.address}</p>
+					</div>
+					<div class="space-y-2">
+						<span class="text-[9px] font-bold uppercase tracking-widest text-brand-accent/50 block">Enquiries</span>
+						<a href={`mailto:${CONTACT_INFO.email}`} class="text-[11px] text-white/40 hover:text-white transition-colors border-b border-white/5 pb-1 block truncate">
+							{CONTACT_INFO.email}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section 3: The Brand Horizon (The Big Finish) -->
+		<div class="relative pt-24">
+			<!-- Massive Background Text -->
+			<div class="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none select-none">
+				<span class="text-[12vw] font-display font-black text-white/[0.03] uppercase tracking-tighter leading-none whitespace-nowrap">
+					ARCADIA RIVERSIDE
+				</span>
+			</div>
+
+			<div class="relative z-10 flex flex-col lg:flex-row justify-between items-center gap-12 text-[9px] font-bold uppercase tracking-[0.6em] text-white/20">
+				<div class="flex flex-col md:flex-row items-center gap-16">
+					<div class="flex items-center gap-3">
+						<div class="w-2 h-2 bg-brand-accent animate-pulse rounded-full"></div>
+						<span>&copy; {today.getFullYear()} ARC-OPERATIONS</span>
+					</div>
+					<div class="flex items-center gap-4">
+						<Globe size={12} className="text-brand-accent/40" />
+						<span>LONDON EDITION v1.02</span>
+					</div>
+				</div>
+
+				<div class="flex flex-wrap justify-center gap-12">
+					<a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+					<a href="/terms" class="hover:text-white transition-colors">Terms</a>
+					<a href="/cookies" class="hover:text-white transition-colors">Compliance</a>
+					<div class="text-brand-accent italic tracking-widest">Architectural Excellence</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </footer>
-<style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
-	}
-	.social-links {
-		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
-	}
-	.social-links a {
-		text-decoration: none;
-		color: rgb(var(--gray));
-	}
-	.social-links a:hover {
-		color: rgb(var(--gray-dark));
-	}
-</style>

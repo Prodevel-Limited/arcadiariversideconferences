@@ -1,0 +1,146 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { Play, Mic2, ExternalLink } from 'lucide-react';
+
+const podcasts = (await getCollection('podcasts')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<MainLayout title="Podcast Hub">
+	<section class="py-40 border-b border-white/5 bg-grid">
+			<div class="container-premium">
+				<span class="text-brand-accent text-xs font-bold uppercase tracking-[0.5em] mb-8 block">Intellectual Capital</span>
+				<h1 class="text-6xl md:text-9xl font-display font-bold mb-12 leading-[0.8] tracking-tighter uppercase">
+					THE <span class="text-white/20 italic">HUB</span>
+				</h1>
+				<p class="text-white/40 max-w-2xl text-xl leading-relaxed font-light">
+					A broadcast hub for the visionaries, leaders, and innovators shaping the Thames Road corridor and the future of London.
+				</p>
+			</div>
+		</section>
+
+		<section class="py-32">
+			<div class="container-premium">
+				
+				<!-- Featured Episode - High Impact -->
+				{podcasts.length > 0 && (
+					<div class="mb-40">
+						<div class="relative bg-brand-secondary border border-white/5 p-12 lg:p-24 overflow-hidden group">
+							<div class="absolute top-0 right-0 w-1/2 h-full bg-grid opacity-10 pointer-events-none" />
+							<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+								<div class="lg:col-span-5 aspect-square bg-brand-primary border border-white/10 relative overflow-hidden">
+									<Image 
+										src={podcasts[0].data.coverImage} 
+										alt={podcasts[0].data.title}
+										width={800}
+										height={800}
+										class="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-1000"
+									/>
+									<div class="absolute inset-0 flex items-center justify-center">
+										<div class="w-24 h-24 rounded-full bg-brand-accent flex items-center justify-center text-brand-primary shadow-2xl group-hover:scale-110 transition-transform duration-500 cursor-pointer">
+											<Play fill="currentColor" size={32} />
+										</div>
+									</div>
+								</div>
+								<div class="lg:col-span-7">
+									<div class="inline-block px-4 py-2 bg-brand-accent text-brand-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-12">
+										Featured Insights
+									</div>
+									<h2 class="text-4xl md:text-7xl font-display font-bold mb-8 uppercase leading-[0.9] tracking-tight">
+										{podcasts[0].data.title}
+									</h2>
+									<div class="flex flex-wrap items-center gap-10 mb-12 text-[10px] font-bold uppercase tracking-[0.3em] text-white/40">
+										<span class="flex items-center gap-3">
+											<Mic2 size={16} className="text-brand-accent" />
+											Moderator: {podcasts[0].data.host}
+										</span>
+										<span class="flex items-center gap-3">
+											<div class="h-[1px] w-6 bg-white/10"></div>
+											<FormattedDate date={podcasts[0].data.pubDate} />
+										</span>
+									</div>
+									<p class="text-white/50 text-xl mb-16 leading-relaxed font-light italic max-w-xl">
+										"{podcasts[0].data.description}"
+									</p>
+									<div class="flex flex-wrap gap-8">
+										<a href="#" class="btn-premium flex items-center gap-3">
+											Listen Now <Play size={12} fill="currentColor" />
+										</a>
+										<div class="flex items-center gap-10 border-l border-white/5 pl-10">
+											<a href="#" class="text-white/30 hover:text-brand-accent transition-colors">
+												<span class="sr-only">Apple</span>
+												<ExternalLink size={18} />
+											</a>
+											<a href="#" class="text-white/30 hover:text-brand-accent transition-colors">
+												<span class="sr-only">Spotify</span>
+												<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 11.5c2.5-1 5.5-1 8 0"></path><path d="M7 15c3.5-1.5 7-1.5 10.5 0"></path><path d="M9 8c2-1 4-1 6 0"></path></svg>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				)}
+
+				<!-- Episode Archive Grid -->
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+					{podcasts.slice(1).map((episode) => (
+						<article class="bento-card group flex flex-col">
+							<div class="aspect-video bg-brand-primary border border-white/5 mb-10 relative overflow-hidden">
+								<Image 
+									src={episode.data.coverImage} 
+									alt={episode.data.title}
+									width={600}
+									height={337}
+									class="w-full h-full object-cover grayscale opacity-30 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
+								/>
+								<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+									<div class="w-16 h-16 rounded-full bg-brand-accent flex items-center justify-center text-brand-primary shadow-xl">
+										<Play fill="currentColor" size={24} />
+									</div>
+								</div>
+							</div>
+							<div class="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.4em] text-brand-accent mb-6">
+								<div class="h-[1px] w-6 bg-current"></div>
+								<FormattedDate date={episode.data.pubDate} />
+							</div>
+							<h3 class="text-2xl font-display font-bold mb-6 uppercase tracking-tight group-hover:text-brand-accent transition-colors duration-500">
+								{episode.data.title}
+							</h3>
+							<p class="text-white/30 text-sm leading-relaxed mb-10 line-clamp-3 font-light">
+								{episode.data.description}
+							</p>
+							<div class="mt-auto pt-8 border-t border-white/5">
+								<a href="#" class="text-[10px] font-bold uppercase tracking-[0.4em] text-white hover:text-brand-accent transition-all flex items-center gap-3">
+									Access Intelligence <ExternalLink size={12} />
+								</a>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Future Studio CTA -->
+		<section class="py-40 bg-brand-accent text-brand-primary overflow-hidden relative group">
+			<div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-1000"></div>
+			<div class="container-premium text-center relative z-10">
+				<span class="text-[10px] font-bold uppercase tracking-[0.5em] mb-12 block opacity-60">Future Operations</span>
+				<h2 class="text-5xl md:text-9xl font-display font-bold mb-12 uppercase leading-[0.85] tracking-tighter">
+					BROADCAST <br /> <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary/60">YOUR STORY</span>
+				</h2>
+				<p class="text-brand-primary/70 max-w-2xl mx-auto mb-20 text-xl font-medium leading-relaxed">
+					Our future phase introduces state-of-the-art music and podcast studios. Join our ecosystem to be notified of priority booking access.
+				</p>
+				<a href="/enquire" class="inline-block px-16 py-6 bg-brand-primary text-white font-bold uppercase tracking-[0.3em] text-sm hover:scale-105 transition-all shadow-2xl">
+					Join the Waitlist
+				</a>
+			</div>
+			<div class="absolute -top-40 -right-40 w-[40rem] h-[40rem] bg-white/10 rounded-full blur-[100px] pointer-events-none"></div>
+		</section>
+</MainLayout>

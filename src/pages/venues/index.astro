@@ -1,0 +1,90 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const venues = await getCollection('venues');
+---
+
+<MainLayout title="Venues">
+	<section class="py-40 border-b border-white/5 bg-grid">
+			<div class="container-premium">
+				<span class="text-brand-accent text-xs font-bold uppercase tracking-[0.5em] mb-8 block">Architectural Portfolio</span>
+				<h1 class="text-6xl md:text-9xl font-display font-bold mb-12 leading-[0.8] tracking-tighter uppercase">
+					THE <span class="text-white/20 italic">SPACES</span>
+				</h1>
+				<p class="text-white/40 max-w-2xl text-xl leading-relaxed font-light">
+					A collection of high-performance environments engineered for corporate excellence, innovation, and intentionality.
+				</p>
+			</div>
+		</section>
+
+		<section class="py-32">
+			<div class="container-premium space-y-40">
+				{venues.map((venue, index) => (
+					<div class={`grid grid-cols-1 lg:grid-cols-12 gap-16 items-center`}>
+						<div class={`lg:col-span-7 relative group overflow-hidden ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+							<div class="absolute inset-0 bg-brand-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-10" />
+							<Image 
+								src={venue.data.heroImage} 
+								alt={venue.data.title}
+								width={1200}
+								height={800}
+								class="w-full aspect-[16/10] object-cover transition-transform duration-1000 group-hover:scale-105"
+							/>
+							<div class="absolute bottom-10 right-10 z-20 hidden md:block">
+								<div class="bg-brand-primary/80 backdrop-blur-md px-8 py-4 border border-white/10">
+									<span class="text-2xl font-display font-bold text-white uppercase">{venue.data.sqm} <span class="text-brand-accent">SQM</span></span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="lg:col-span-5">
+							<div class="flex items-center gap-4 mb-8 text-brand-accent">
+								<div class="h-[1px] w-12 bg-current"></div>
+								<span class="text-[10px] font-bold uppercase tracking-[0.4em]">Available for Hire</span>
+							</div>
+							<h2 class="text-4xl md:text-6xl font-display font-bold mb-8 uppercase leading-tight tracking-tight">{venue.data.title}</h2>
+							<p class="text-white/40 text-lg mb-12 leading-relaxed font-light">
+								{venue.data.description}
+							</p>
+							
+							<div class="grid grid-cols-2 gap-8 mb-16 border-y border-white/5 py-10">
+								<div>
+									<h4 class="text-white font-bold text-xs uppercase tracking-widest mb-2">Max Capacity</h4>
+									<p class="text-sm text-white/30 uppercase tracking-[0.2em]">{venue.data.capacity} Delegates</p>
+								</div>
+								<div>
+									<h4 class="text-white font-bold text-xs uppercase tracking-widest mb-2">Technical</h4>
+									<p class="text-sm text-white/30 uppercase tracking-[0.2em]">Full AV Suite</p>
+								</div>
+							</div>
+
+							<div class="flex flex-col sm:flex-row gap-8">
+								<a href={`/venues/${venue.id}`} class="btn-premium flex-1 text-center">
+									View Details
+								</a>
+								<a href="/enquire" class="px-10 py-4 border border-white/10 text-white font-bold uppercase tracking-widest text-xs hover:border-brand-accent hover:text-brand-accent transition-all text-center flex-1">
+									Enquire Now
+								</a>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- Design Ethos CTA -->
+		<section class="py-40 bg-brand-secondary border-y border-white/5">
+			<div class="container-premium text-center">
+				<span class="text-brand-accent text-[10px] font-bold uppercase tracking-[0.5em] mb-8 block">Bespoke Curation</span>
+				<h2 class="text-4xl md:text-7xl font-display font-bold mb-10 uppercase tracking-tight">ENGINEERED FOR YOUR <span class="text-white/20 italic">VISION</span></h2>
+				<p class="text-white/40 max-w-xl mx-auto mb-16 text-lg font-light leading-relaxed">
+					No two events are the same. We listen first, then tailor every detail to suit your unique audience and goals.
+				</p>
+				<a href="/enquire" class="btn-premium">
+					Start Planning
+				</a>
+			</div>
+		</section>
+</MainLayout>
