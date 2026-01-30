@@ -4,51 +4,51 @@ import { SITE_TITLE } from '../consts';
 import { Image } from 'astro:assets';
 import { Target, Zap, Shield, ArrowRight } from 'lucide-react';
 
-const aboutImage = "https://images.pexels.com/photos/1105058/pexels-photo-1105058.jpeg";
-const landscapeImage = "https://images.pexels.com/photos/256150/pexels-photo-256150.jpeg";
+const aboutImage = "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg";
+const landscapeImage = "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg";
 
 const values = [
 	{
-		title: "Architectural Integrity",
-		description: "We believe in the stability of our word. ARC operates with surgical transparency, ensuring every technical and aesthetic detail is executed to precision.",
+		title: "Integrity",
+		description: "You can rely on us to deliver exactly what we promise. We operate with honesty, transparency, and consistency—every step of the way.",
 		icon: Shield,
 		id: "01"
 	},
 	{
-		title: "Dynamic Adaptability",
-		description: "In the rapidly evolving London landscape, we remain agile. We listen to the rhythm of your vision and tailor our infrastructure to match.",
+		title: "Adaptability",
+		description: "No two events are the same. We listen first, then tailor every detail to suit your unique goals, audience, and vision.",
 		icon: Zap,
 		id: "02"
 	},
 	{
-		title: "Operational Excellence",
-		description: "We don't just host; we engineer experiences. Our standard is defined by 100% reliability, from high-speed data to high-end hospitality.",
+		title: "Excellence",
+		description: "We don't just provide a venue—we craft experiences. Expect precision, professionalism, and the highest standard, every time.",
 		icon: Target,
 		id: "03"
 	}
 ];
 ---
 
-<MainLayout title="Our Philosophy">
+<MainLayout title="About Us">
 	<!-- Mission Hero -->
 	<section class="py-40 relative overflow-hidden border-b border-white/5 bg-grid">
 		<div class="container-premium relative z-10">
 			<div class="flex items-center gap-4 mb-10 text-brand-accent">
 				<div class="h-[1px] w-12 bg-current"></div>
-				<span class="text-xs font-bold uppercase tracking-[0.5em]">The Arcadia Narrative</span>
+				<span class="text-xs font-bold uppercase tracking-[0.5em]">About Arcadia</span>
 			</div>
 			<h1 class="text-6xl md:text-9xl font-display font-bold mb-16 max-w-6xl leading-[0.85] tracking-tighter uppercase">
-				ENGINEERING THE <br />
-				<span class="text-white/20 italic">FUTURE OF EXCHANGE</span>
+				BUILT FOR <br />
+				<span class="text-white/20 italic">WHAT MATTERS</span>
 			</h1>
-			<p class="text-2xl md:text-3xl text-white/50 max-w-4xl leading-relaxed font-light italic">
-				Arcadia Riverside (ARC) is the strategic anchor for organizations seeking a destination that reflects their own commitment to excellence.
+			<p class="text-2xl md:text-3xl text-white/50 max-w-4xl leading-relaxed font-light">
+				Arcadia Riverside is a different kind of venue. Located at the heart of East London's most significant regeneration, we exist for organisations that understand: where you meet shapes what you achieve.
 			</p>
 		</div>
 		<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-accent/5 to-transparent pointer-events-none"></div>
 	</section>
 
-	<!-- Strategic Context: The Power of Place -->
+	<!-- Our Location -->
 	<section class="py-40 bg-brand-secondary overflow-hidden">
 		<div class="container-premium">
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -69,29 +69,29 @@ const values = [
 					</div>
 				</div>
 				<div class="lg:col-span-6">
-					<span class="text-brand-accent text-[10px] font-bold uppercase tracking-[0.5em] mb-8 block">Strategic Context</span>
+					<span class="text-brand-accent text-[10px] font-bold uppercase tracking-[0.5em] mb-8 block">Our Location</span>
 					<h2 class="text-5xl md:text-7xl font-display font-bold mb-12 leading-[0.9] tracking-tight uppercase">
-						THE HEART OF <br />
-						<span class="text-white/20">LONDON'S NEW</span> <br />
-						<span class="text-brand-accent">NUCLEUS.</span>
+						AT THE HEART OF <br />
+						<span class="text-white/20">EAST LONDON'S</span> <br />
+						<span class="text-brand-accent">TRANSFORMATION.</span>
 					</h2>
 					<p class="text-white/40 mb-16 text-xl leading-relaxed font-light">
-						Positioned at the epicenter of Barking Riverside's transformation, Arcadia sits within an emerging hotspot for global activity. We bridge the gap between East London’s industrial heritage and its future as a tech and cultural hub.
+						Minutes from central London, worlds away from the ordinary. Barking Riverside is one of London's fastest-growing regeneration zones—a destination for organisations seeking modern, accessible spaces outside traditional central London locations.
 					</p>
 					
 					<div class="space-y-12">
 						<div class="flex items-start gap-8 p-8 bg-brand-primary/50 border border-white/5 hover:border-brand-accent/20 transition-colors">
 							<div class="text-brand-accent"><ArrowRight size={20} /></div>
 							<div>
-								<h4 class="text-white font-bold text-xs uppercase tracking-widest mb-3">Thames Corridor Connection</h4>
-								<p class="text-sm text-white/30 leading-relaxed">Direct integration with the world's most vital maritime and tech routes.</p>
+								<h4 class="text-white font-bold text-xs uppercase tracking-widest mb-3">Prime Connectivity</h4>
+								<p class="text-sm text-white/30 leading-relaxed">Excellent transport links via the Overground and proximity to the Thames Road corridor.</p>
 							</div>
 						</div>
 						<div class="flex items-start gap-8 p-8 bg-brand-primary/50 border border-white/5 hover:border-brand-accent/20 transition-colors">
 							<div class="text-brand-accent"><ArrowRight size={20} /></div>
 							<div>
-								<h4 class="text-white font-bold text-xs uppercase tracking-widest mb-3">Regeneration Leadership</h4>
-								<p class="text-sm text-white/30 leading-relaxed">The primary architectural anchor for professional exchange in Barking.</p>
+								<h4 class="text-white font-bold text-xs uppercase tracking-widest mb-3">A Growing Business Destination</h4>
+								<p class="text-sm text-white/30 leading-relaxed">Join the organisations already choosing East London for their most important gatherings.</p>
 							</div>
 						</div>
 					</div>
@@ -100,16 +100,16 @@ const values = [
 		</div>
 	</section>
 
-	<!-- The Arcadia Code (Values) -->
+	<!-- Our Values -->
 	<section class="py-40 bg-brand-primary relative">
 		<div class="container-premium">
 			<div class="flex flex-col md:flex-row md:items-end justify-between mb-32 gap-12">
 				<div>
-					<span class="text-brand-accent text-[10px] font-bold uppercase tracking-[0.5em] mb-6 block">Our Operating System</span>
-					<h2 class="text-5xl md:text-8xl font-display font-bold uppercase tracking-tighter">THE <span class="text-white/10 italic">ARCADIA</span> CODE</h2>
+					<span class="text-brand-accent text-[10px] font-bold uppercase tracking-[0.5em] mb-6 block">What We Stand For</span>
+					<h2 class="text-5xl md:text-8xl font-display font-bold uppercase tracking-tighter">OUR <span class="text-white/10 italic">VALUES</span></h2>
 				</div>
 				<p class="text-white/30 max-w-xs text-sm uppercase tracking-widest leading-loose font-bold">
-					High-performance values for a high-performance era.
+					The principles that guide everything we do.
 				</p>
 			</div>
 
@@ -134,33 +134,27 @@ const values = [
 		</div>
 	</section>
 
-	<!-- Legacy Section -->
+	<!-- Who We Serve Section -->
 	<section class="py-40 bg-brand-secondary relative overflow-hidden">
 		<div class="container-premium relative z-10">
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
 				<div>
+					<span class="text-brand-accent text-[10px] font-bold uppercase tracking-[0.5em] mb-6 block">Who We Serve</span>
 					<h2 class="text-4xl md:text-6xl font-display font-bold mb-12 uppercase leading-tight tracking-tight">
-						WHERE <span class="text-brand-accent italic">HERITAGE</span> <br />
-						MEETS THE <span class="text-white/20">HORIZON.</span>
+						FOR <span class="text-brand-accent italic">ORGANISATIONS</span> <br />
+						THAT DEMAND <span class="text-white/20">MORE.</span>
 					</h2>
-					<p class="text-white/40 text-xl leading-relaxed font-light mb-16">
-						Arcadia Riverside isn't just a venue; it's a testament to the belief that environment dictates outcome. We provide the silence, the speed, and the space required for London's next great decisions.
-					</p>
-					<div class="flex gap-12 border-t border-white/5 pt-16">
-						<div>
-							<div class="text-4xl font-display font-bold text-white mb-2">100%</div>
-							<div class="text-[9px] font-bold uppercase tracking-widest text-white/30">Renewable Energy</div>
-						</div>
-						<div>
-							<div class="text-4xl font-display font-bold text-white mb-2">24/7</div>
-							<div class="text-[9px] font-bold uppercase tracking-widest text-white/30">Expert Triage</div>
-						</div>
+					<div class="space-y-8 text-white/40 text-lg leading-relaxed font-light">
+						<p><span class="text-white font-medium">Corporations & Professional Organisations</span> — Board meetings, away days, product launches, and annual conferences that reflect your standards.</p>
+						<p><span class="text-white font-medium">Entrepreneurs & Business Communities</span> — Networking events, pitch days, and workshops where connections turn into opportunities.</p>
+						<p><span class="text-white font-medium">Government & Public Sector Bodies</span> — Consultations, stakeholder events, and training sessions delivered with discretion and professionalism.</p>
+						<p><span class="text-white font-medium">Education & Training Providers</span> — Seminars, certification programmes, and development sessions in spaces designed for focus.</p>
 					</div>
 				</div>
 				<div class="aspect-video relative overflow-hidden border border-white/5">
 					<Image 
 						src={landscapeImage} 
-						alt="The Horizon of Innovation" 
+						alt="Professional event at Arcadia Riverside" 
 						width={1200} 
 						height={675} 
 						class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-1000" 
@@ -170,16 +164,43 @@ const values = [
 		</div>
 	</section>
 
-	<!-- Final CTA -->
-	<section class="py-40 bg-brand-accent relative overflow-hidden group">
-		<div class="absolute inset-0 bg-brand-primary opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
+	<!-- Final CTA: The Strategic Invitation -->
+	<section class="py-40 bg-brand-primary relative overflow-hidden group border-t border-white/5">
+		<!-- Subtle Arcadia Gold Glow -->
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none group-hover:bg-brand-accent/10 transition-colors duration-1000"></div>
+		
 		<div class="container-premium relative z-10 text-center">
-			<h2 class="text-5xl md:text-9xl font-display font-bold mb-12 text-brand-primary leading-[0.85] tracking-tighter uppercase">
-				DEFINE YOUR <br /> <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primary/60">CHAPTER</span>
+			<div class="flex items-center justify-center gap-4 mb-12 text-brand-accent/40">
+				<div class="h-[1px] w-8 bg-current"></div>
+				<span class="text-[10px] font-bold uppercase tracking-[0.5em]">Strategic Invitation</span>
+				<div class="h-[1px] w-8 bg-current"></div>
+			</div>
+
+			<h2 class="text-6xl md:text-9xl font-display font-bold mb-12 text-white leading-[0.85] tracking-tighter uppercase">
+				READY TO <br /> 
+				<span class="italic text-transparent bg-clip-text bg-gradient-to-r from-brand-accent/40 via-brand-accent to-brand-accent/40 bg-[length:200%_auto] animate-gradient-x">
+					GET STARTED?
+				</span>
 			</h2>
-			<a href="/enquire" class="inline-block px-16 py-6 bg-brand-primary text-white font-bold uppercase tracking-[0.3em] text-sm hover:scale-105 transition-all shadow-2xl">
-				Begin Consultation
-			</a>
+
+			<p class="text-white/30 max-w-2xl mx-auto mb-20 text-xl font-light leading-relaxed">
+				Book a viewing and discover why leading organisations choose Arcadia Riverside to engineer their most significant milestones.
+			</p>
+
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-8">
+				<a href="/enquire" class="group relative px-16 py-6 bg-brand-accent/10 border border-brand-accent/20 text-brand-accent font-bold uppercase tracking-[0.3em] text-sm overflow-hidden transition-all duration-500 hover:border-brand-accent hover:text-brand-primary">
+					<span class="relative z-10">Initialize Consultation</span>
+					<div class="absolute inset-0 bg-brand-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+				</a>
+				<a href="/venues" class="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20 hover:text-white transition-colors">
+					Explore Portfolio →
+				</a>
+			</div>
+		</div>
+
+		<!-- Industrial Corner Accents -->
+		<div class="absolute bottom-0 right-0 p-12 opacity-10 pointer-events-none">
+			<div class="text-[10rem] font-display font-black leading-none text-white/[0.02]">ARC</div>
 		</div>
 	</section>
 </MainLayout>

@@ -1,5 +1,5 @@
 export const SITE_TITLE = 'ARCADIA RIVERSIDE';
-export const SITE_DESCRIPTION = 'The premier venue in Barking Riverside for corporate excellence, meetings, and regeneration chic.';
+export const SITE_DESCRIPTION = 'Premier conference and event venue in Barking Riverside, East London. Purpose-built spaces for corporations, entrepreneurs, government, and education providers who demand excellence.';
 
 export const CONTACT_INFO = {
   address: 'Barking Riverside, London, Thames Road Corridor',
